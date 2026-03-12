@@ -1,0 +1,8 @@
+{
+  "rewrites": [
+    {
+      "source": "/personal-project/:id",
+      "destination": "/personal-project.html"
+    }
+  ]
+}

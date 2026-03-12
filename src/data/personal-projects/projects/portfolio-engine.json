@@ -1,0 +1,48 @@
+{
+  "id": "portfolio-engine",
+  "title": "Portfolio Engine",
+  "titleEs": "Portfolio Engine",
+  "description": "Modular personal website architecture with bilingual content, reusable components and polished recruiter UX.",
+  "descriptionEs": "Arquitectura modular de portfolio personal con contenido bilingue, componentes reutilizables y UX orientada a recruiters.",
+  "repository": "https://github.com/hpenac01",
+  "technologies": ["HTML", "CSS", "JavaScript"],
+  "overview": "Recruiter-oriented portfolio platform focused on clarity, conversion and maintainable content architecture.",
+  "overviewEs": "Plataforma de portfolio orientada a recruiters, enfocada en claridad, conversion y arquitectura de contenido mantenible.",
+  "documentation": {
+    "en": [
+      "ES/EN translation system with localStorage persistence.",
+      "JSON-driven content blocks for easy maintenance.",
+      "Intersection-based motion and active section navigation.",
+      "Static-friendly architecture optimized for fast loading."
+    ],
+    "es": [
+      "Sistema de traduccion ES/EN con persistencia en localStorage.",
+      "Bloques de contenido basados en JSON para mantenimiento rapido.",
+      "Animaciones por interseccion y navegacion activa por scroll.",
+      "Arquitectura estatica optimizada para carga rapida."
+    ]
+  },
+  "demo": [
+    {
+      "title": "Recruiter Hero",
+      "titleEs": "Hero Recruiter",
+      "caption": "Value proposition and key metrics.",
+      "captionEs": "Propuesta de valor y metricas clave.",
+      "file": "01-hero.png"
+    },
+    {
+      "title": "Experience Section",
+      "titleEs": "Seccion de Experiencia",
+      "caption": "Professional timeline and grouped skills.",
+      "captionEs": "Timeline profesional y habilidades agrupadas.",
+      "file": "02-experience.png"
+    },
+    {
+      "title": "Language Toggle",
+      "titleEs": "Selector de Idioma",
+      "caption": "Dynamic ES/EN content rendering.",
+      "captionEs": "Render dinamico de contenido ES/EN.",
+      "file": "03-language-toggle.png"
+    }
+  ]
+}

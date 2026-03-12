@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Personal project detail page" />
+  <title>Personal Project | Hugo Pena Cantonero</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <script>
+    (function setBasePath() {
+      const marker = "/personal-project/";
+      const pathname = window.location.pathname;
+      const markerIndex = pathname.indexOf(marker);
+      let basePath = "";
+
+      if (markerIndex >= 0) {
+        basePath = pathname.slice(0, markerIndex);
+      }
+
+      window.__BASE_PATH__ = basePath;
+
+      const stylesheet = document.createElement("link");
+      stylesheet.rel = "stylesheet";
+      stylesheet.href = `${basePath}/src/styles/project-detail.css`;
+      document.head.appendChild(stylesheet);
+    })();
+  </script>
+</head>
+<body>
+  <header class="topbar">
+    <div class="container">
+      <a id="back-link" class="back-link" href="/index.html#personal-projects">← Back to personal projects</a>
+    </div>
+  </header>
+
+  <main>
+    <section class="section hero">
+      <div class="container card">
+        <h1 id="project-title">Project not found</h1>
+        <p id="project-overview">The selected project does not exist.</p>
+        <div class="actions">
+          <a id="project-repo" class="btn primary" href="#" target="_blank" rel="noopener noreferrer">Repository</a>
+          <a class="btn secondary" href="/index.html#contact">Contact</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container card">
+        <h2 id="doc-title">Documentation</h2>
+        <ul id="doc-list" class="doc-list"></ul>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container card">
+        <h2 id="demo-title">Visual demo</h2>
+        <div id="demo-grid" class="demo-grid"></div>
+      </div>
+    </section>
+  </main>
+
+  <script>
+    (function loadScripts() {
+      const basePath = window.__BASE_PATH__ || "";
+      const script = document.createElement("script");
+      script.src = `${basePath}/src/js/personal-project-detail.js`;
+      script.defer = true;
+      document.body.appendChild(script);
+    })();
+  </script>
+</body>
+</html>

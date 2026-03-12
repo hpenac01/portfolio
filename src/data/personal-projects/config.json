@@ -1,0 +1,32 @@
+{
+  "paths": {
+    "projectsBase": "src/data/personal-projects/projects",
+    "assetsBase": "assets/projects"
+  },
+  "ui": {
+    "en": {
+      "cardRepository": "Repository",
+      "cardDetails": "View details",
+      "detailBack": "← Back to personal projects",
+      "detailContact": "Contact",
+      "detailRepository": "Repository",
+      "detailDocumentation": "Documentation",
+      "detailVisualDemo": "Visual demo",
+      "detailNotFoundTitle": "Project not found",
+      "detailNotFoundBody": "The selected project does not exist.",
+      "detailDemoPlaceholder": "Add screenshot here"
+    },
+    "es": {
+      "cardRepository": "Repositorio",
+      "cardDetails": "Ver detalle",
+      "detailBack": "← Volver a proyectos personales",
+      "detailContact": "Contactar",
+      "detailRepository": "Repositorio",
+      "detailDocumentation": "Documentación",
+      "detailVisualDemo": "Demo visual",
+      "detailNotFoundTitle": "Proyecto no encontrado",
+      "detailNotFoundBody": "El proyecto seleccionado no existe.",
+      "detailDemoPlaceholder": "Añade captura aquí"
+    }
+  }
+}
