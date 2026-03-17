@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="description" content="Hugo Peña Cantonero - Software Engineer, Android Developer and QA Automation portfolio" />
   <title>Hugo Peña Cantonero | Software Engineer</title>
+  <link rel="icon" type="image/svg+xml" href="assets/favicon.svg" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
@@ -22,6 +23,7 @@
         <a href="#skills" data-i18n="nav.skills">Skills</a>
         <a href="#experience" data-i18n="nav.experience">Experience</a>
         <a href="#projects" data-i18n="nav.projects">Projects</a>
+        <a href="#certifications" data-i18n="nav.certifications">Certifications</a>
         <a href="#education-languages" data-i18n="nav.background">Education & Languages</a>
         <a href="#contact" data-i18n="nav.contact">Contact</a>
       </nav>
@@ -221,8 +223,41 @@
           <p class="small-note" data-i18n="personalProjects.subtitle">
             Open-source projects with repository access and dedicated detail pages including documentation and visual demos.
           </p>
-          <div id="personal-projects-grid" class="projects-rail"></div>
+          <div class="projects-rail-wrap">
+            <button
+              id="personal-projects-prev"
+              class="projects-rail-arrow"
+              type="button"
+              aria-label="Scroll personal projects left"
+              hidden
+            >
+              ‹
+            </button>
+            <div id="personal-projects-grid" class="projects-rail"></div>
+            <button
+              id="personal-projects-next"
+              class="projects-rail-arrow"
+              type="button"
+              aria-label="Scroll personal projects right"
+              hidden
+            >
+              ›
+            </button>
+          </div>
         </div>
+      </div>
+    </section>
+
+    <section id="certifications" class="section">
+      <div class="container reveal">
+        <div class="section-heading">
+          <p class="eyebrow" data-i18n="certifications.eyebrow">Validated learning</p>
+          <h2 data-i18n="certifications.title">Certifications</h2>
+        </div>
+        <p class="small-note" data-i18n="certifications.subtitle">
+          Formal training and credentials that support practical software engineering and QA delivery.
+        </p>
+        <div id="certifications-grid" class="certifications-grid"></div>
       </div>
     </section>
 
@@ -277,7 +312,29 @@
     <p>© 2026 Hugo Peña Cantonero</p>
   </footer>
 
+  <div
+    id="image-lightbox"
+    class="image-lightbox"
+    hidden
+    role="dialog"
+    aria-modal="true"
+    aria-label="Expanded certification diploma"
+  >
+    <div class="image-lightbox-content">
+      <button
+        id="image-lightbox-close"
+        class="image-lightbox-close"
+        type="button"
+        aria-label="Close image viewer"
+      >
+        ×
+      </button>
+      <img id="image-lightbox-img" class="image-lightbox-img" src="" alt="" />
+    </div>
+  </div>
+
   <script src="src/js/app.js"></script>
+  <script src="src/js/certifications.js"></script>
   <script src="src/js/personal-projects.js"></script>
   <script src="src/js/projects.js"></script>
 </body>

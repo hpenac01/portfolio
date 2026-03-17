@@ -12,6 +12,7 @@ const translations = {
     "nav.skills": "Skills",
     "nav.experience": "Experience",
     "nav.projects": "Projects",
+    "nav.certifications": "Certifications",
     "nav.personalProjects": "Personal Projects",
     "nav.background": "Education & Languages",
     "nav.contact": "Contact",
@@ -62,6 +63,10 @@ const translations = {
     "personalProjects.title": "Personal projects",
     "personalProjects.subtitle":
       "Open-source projects with repository access and dedicated detail pages including documentation and visual demos.",
+    "certifications.eyebrow": "Validated learning",
+    "certifications.title": "Certifications",
+    "certifications.subtitle":
+      "Formal training and credentials that support practical software engineering and QA delivery.",
     "background.eyebrow": "Background",
     "background.title": "Education & Languages",
     "education.eyebrow": "Education",
@@ -84,6 +89,7 @@ const translations = {
     "nav.skills": "Habilidades",
     "nav.experience": "Experiencia",
     "nav.projects": "Proyectos",
+    "nav.certifications": "Certificaciones",
     "nav.personalProjects": "Proyectos personales",
     "nav.background": "Educacion e idiomas",
     "nav.contact": "Contacto",
@@ -133,6 +139,10 @@ const translations = {
     "personalProjects.title": "Proyectos personales",
     "personalProjects.subtitle":
       "Proyectos open-source con acceso al repositorio y paginas de detalle con documentacion y demo visual.",
+    "certifications.eyebrow": "Aprendizaje validado",
+    "certifications.title": "Certificaciones",
+    "certifications.subtitle":
+      "Formacion y credenciales que respaldan la practica en ingenieria de software y QA.",
     "background.eyebrow": "Formacion",
     "background.title": "Educacion e idiomas",
     "education.eyebrow": "Educación",
