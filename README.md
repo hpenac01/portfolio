@@ -1,162 +1,61 @@
-# Hugo Pena Cantonero - Portfolio
+# Portfolio Template (ES/EN)
 
-Portfolio profesional recruiter-ready (ES/EN) enfocado en Software Engineering, Android Development y QA Automation.
+Plantilla de portfolio personal lista para adaptar con tus propios datos.
 
-Incluye:
-- Landing moderna con modo claro/oscuro
-- Internacionalizacion (ingles/espanol)
-- Seccion de proyectos profesionales
-- Seccion de proyectos personales con rail dinamico
-- Pagina de detalle generica por proyecto (`personal-project.html?id=<id>`)
-- Contenido de proyectos personales cargado desde JSON
+## Que editar en cada caso
 
-## Demo en produccion
+- **Nombre, enlaces y datos de contacto**: `index.html`
+  - Logo/nombre en cabecera.
+  - Botones de LinkedIn, GitHub y email.
+  - Footer con tu nombre.
+- **Textos generales EN/ES (hero, about, education, contacto, etc.)**: `src/js/app.js`
+  - Busca los placeholders entre corchetes (`[ ... ]`) y sustituyelos por tus datos.
+- **Proyectos profesionales (cards simples)**: `src/data/projects.json`
+- **Proyectos personales (cards + detalle completo)**:
+  - Lista de archivos cargados: `src/data/personal-projects/projects/manifest.json`
+  - Contenido de cada proyecto: `src/data/personal-projects/projects/*.json`
+- **Certificaciones**: `src/data/certifications.json`
+- **Textos UI de proyectos personales (EN/ES)**: `src/data/personal-projects/config.json`
+- **Estilos globales**: `src/styles/main.css`
+- **Estilos de pagina detalle**: `src/styles/project-detail.css`
 
-Cuando conectes el repositorio y actives GitHub Pages, la URL sera:
+## Assets que suelen cambiar
 
-- `https://<tu-usuario>.github.io/<tu-repo>/`
+- Foto de perfil: `assets/profile.jpeg`
+- Favicon: `assets/favicon.svg`
+- Diplomas/certificados: `assets/certifications/*`
+- Capturas de proyectos personales: `assets/projects/<project-id>/*`
 
----
+> Importante: en cada proyecto personal, el campo `id` debe coincidir con la carpeta de screenshots en `assets/projects/<id>/`.
 
-## Stack
+## Como anadir un proyecto personal nuevo
 
-- HTML5
-- CSS3
-- JavaScript (vanilla)
-- GitHub Actions (deploy Pages)
-
----
-
-## Estructura del proyecto
-
-```text
-.
-├── index.html
-├── personal-project.html
-├── src/
-│   ├── data/
-│   │   ├── projects.json
-│   │   └── personal-projects/
-│   │       ├── config.json
-│   │       └── projects/
-│   │           ├── manifest.json
-│   │           ├── streambox-android.json
-│   │           ├── qa-automation-lab.json
-│   │           └── portfolio-engine.json
-│   ├── js/
-│   │   ├── app.js
-│   │   ├── projects.js
-│   │   ├── personal-projects.js
-│   │   └── personal-project-detail.js
-│   └── styles/
-│       ├── main.css
-│       └── project-detail.css
-├── assets/
-│   ├── profile.jpeg
-│   └── projects/
-│       ├── README.md
-│       ├── streambox-android/
-│       ├── qa-automation-lab/
-│       └── portfolio-engine/
-└── .github/workflows/deploy-pages.yml
-```
-
----
+1. Crea un JSON en `src/data/personal-projects/projects/` (por ejemplo `my-new-project.json`).
+2. Agrega ese archivo al array `projects` en `src/data/personal-projects/projects/manifest.json`.
+3. Crea la carpeta `assets/projects/<id>/` y mete tus capturas.
+4. En `demo[]`, usa `file` con el nombre de cada imagen.
 
 ## Desarrollo local
 
-Este proyecto es estatico y puedes abrir `index.html` directamente, pero se recomienda servidor local para evitar problemas de `fetch` con JSON:
-
-### Opcion 1 (Python)
+Proyecto estatico (HTML/CSS/JS). Recomendado usar servidor local para `fetch` de JSON:
 
 ```bash
 python3 -m http.server 8080
 ```
 
-Abrir:
-- `http://localhost:8080`
+Abrir [http://localhost:8080](http://localhost:8080).
 
-### Opcion 2 (VSCode/Cursor Live Server)
+## Deploy en GitHub Pages
 
-- Abre el proyecto
-- Ejecuta Live Server sobre `index.html`
+Este repositorio ya incluye workflow: `.github/workflows/deploy-pages.yml`.
 
----
+Pasos:
 
-## Proyectos personales (arquitectura reusable)
+1. Sube el repo a GitHub.
+2. Ve a `Settings` -> `Pages`.
+3. En `Build and deployment`, selecciona `GitHub Actions`.
+4. Haz push a tu rama principal.
 
-La seccion **Personal Projects** y su detalle leen datos desde JSON:
+URL final esperada:
 
-1. `src/data/personal-projects/projects/manifest.json`  
-   Lista de archivos de proyectos a cargar.
-
-2. `src/data/personal-projects/projects/<project>.json`  
-   Datos completos de cada proyecto (`id`, titulos, descripcion, repo, docs, demo...).
-
-3. `src/data/personal-projects/config.json`  
-   Config global de rutas y textos UI (EN/ES).
-
-### Campos clave por proyecto
-
-- `id` (obligatorio, unico)
-- `title` / `titleEs`
-- `description` / `descriptionEs`
-- `repository`
-- `technologies` (array)
-- `overview` / `overviewEs`
-- `documentation.en[]` / `documentation.es[]`
-- `demo[]` con:
-  - `title` / `titleEs`
-  - `caption` / `captionEs`
-  - `file` (ej. `01-home.png`)
-
-### Capturas de demo
-
-Se resuelven automaticamente con la ruta:
-
-`assets/projects/<id>/<file>`
-
-Ejemplo:
-- `assets/projects/streambox-android/01-home.png`
-
----
-
-## Internacionalizacion (EN/ES)
-
-- El idioma se controla con toggle en UI.
-- Se persiste en `localStorage`.
-- Home y detalle respetan el idioma guardado.
-
----
-
-## Deploy a GitHub Pages
-
-Este repo ya incluye workflow:
-
-- `.github/workflows/deploy-pages.yml`
-
-### Pasos
-
-1. Sube el proyecto a GitHub (`main` branch).
-2. En GitHub:
-   - `Settings` -> `Pages`
-   - `Build and deployment` -> `Source: GitHub Actions`
-3. Haz push a `main`.
-4. Espera a que termine el workflow `Deploy portfolio to GitHub Pages`.
-
----
-
-## Personalizacion rapida
-
-- Textos generales: `src/js/app.js`
-- Proyectos profesionales: `src/data/projects.json`
-- Proyectos personales: `src/data/personal-projects/projects/*.json`
-- Config UI reusable: `src/data/personal-projects/config.json`
-- Estilos globales: `src/styles/main.css`
-- Estilos detalle: `src/styles/project-detail.css`
-
----
-
-## Licencia
-
-Uso personal. Puedes reutilizar la arquitectura como base de portfolio adaptando el contenido.
+- `https://<tu-usuario>.github.io/<tu-repo>/`

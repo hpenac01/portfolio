@@ -1,7 +1,8 @@
 let personalProjectsLanguage =
-  localStorage.getItem("hugo-portfolio-language") || "en";
+  localStorage.getItem("portfolio-template-language") || "en";
 let personalProjectsData = [];
 let personalProjectsConfig = null;
+let railControlsBound = false;
 
 function isNonEmptyString(value) {
   return typeof value === "string" && value.trim().length > 0;
@@ -113,6 +114,75 @@ function navigateToDetails(url) {
   window.location.href = url;
 }
 
+function updateRailControlsVisibility() {
+  const rail = document.getElementById("personal-projects-grid");
+  const prevButton = document.getElementById("personal-projects-prev");
+  const nextButton = document.getElementById("personal-projects-next");
+  if (!rail || !prevButton || !nextButton) return;
+
+  const maxScrollLeft = rail.scrollWidth - rail.clientWidth;
+  const hasOverflow = maxScrollLeft > 1;
+  const canScrollLeft = hasOverflow && rail.scrollLeft > 1;
+  const canScrollRight = hasOverflow && rail.scrollLeft < maxScrollLeft - 1;
+
+  prevButton.hidden = !canScrollLeft;
+  nextButton.hidden = !canScrollRight;
+}
+
+function getRailSnapOffsets(rail) {
+  return Array.from(rail.querySelectorAll(".project-card")).map(card => card.offsetLeft);
+}
+
+function scrollRailByCard(direction) {
+  const rail = document.getElementById("personal-projects-grid");
+  if (!rail) return;
+
+  const offsets = getRailSnapOffsets(rail);
+  if (!offsets.length) return;
+
+  const maxScrollLeft = rail.scrollWidth - rail.clientWidth;
+  const current = rail.scrollLeft;
+  const threshold = 2;
+  let target = current;
+
+  if (direction === "next") {
+    target =
+      offsets.find(offset => offset > current + threshold) ??
+      Math.min(maxScrollLeft, current + rail.clientWidth);
+  } else {
+    const previousOffsets = offsets.filter(offset => offset < current - threshold);
+    target =
+      previousOffsets[previousOffsets.length - 1] ??
+      Math.max(0, current - rail.clientWidth);
+  }
+
+  rail.scrollTo({
+    left: Math.max(0, Math.min(target, maxScrollLeft)),
+    behavior: "smooth"
+  });
+}
+
+function bindRailControls() {
+  if (railControlsBound) return;
+
+  const rail = document.getElementById("personal-projects-grid");
+  const prevButton = document.getElementById("personal-projects-prev");
+  const nextButton = document.getElementById("personal-projects-next");
+  if (!rail || !prevButton || !nextButton) return;
+
+  prevButton.addEventListener("click", () => {
+    scrollRailByCard("prev");
+  });
+
+  nextButton.addEventListener("click", () => {
+    scrollRailByCard("next");
+  });
+
+  rail.addEventListener("scroll", updateRailControlsVisibility, { passive: true });
+  window.addEventListener("resize", updateRailControlsVisibility);
+  railControlsBound = true;
+}
+
 function renderPersonalProjects(language = "en") {
   const rail = document.getElementById("personal-projects-grid");
   if (!rail) return;
@@ -168,6 +238,9 @@ function renderPersonalProjects(language = "en") {
 
     rail.appendChild(card);
   });
+
+  bindRailControls();
+  updateRailControlsVisibility();
 }
 
 window.addEventListener("portfolio-language-change", event => {

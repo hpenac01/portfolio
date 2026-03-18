@@ -4,7 +4,8 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="description" content="Personal project detail page" />
-  <title>Personal Project | Hugo Pena Cantonero</title>
+  <title>Personal Project | [YOUR NAME]</title>
+  <link rel="icon" type="image/svg+xml" href="assets/favicon.svg" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
@@ -20,6 +21,11 @@
       }
 
       window.__BASE_PATH__ = basePath;
+
+      const favicon = document.querySelector("link[rel='icon']");
+      if (favicon) {
+        favicon.href = `${basePath}/assets/favicon.svg`;
+      }
 
       const stylesheet = document.createElement("link");
       stylesheet.rel = "stylesheet";
