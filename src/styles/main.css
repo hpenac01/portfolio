@@ -638,6 +638,11 @@ p {
   padding: 32px 0 40px;
 }
 
+/* Hidden prod revision: view source / DOM; replaced by CI (DEPLOY_SHA_PLACEHOLDER) */
+.deploy-revision[hidden] {
+  display: none !important;
+}
+
 .reveal {
   opacity: 0;
   transform: translateY(16px);

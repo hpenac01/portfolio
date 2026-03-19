@@ -147,6 +147,10 @@ Este repo ya incluye workflow:
 3. Haz push a `main`.
 4. Espera a que termine el workflow `Deploy portfolio to GitHub Pages`.
 
+### Revision desplegada (prod)
+
+En cada deploy, el workflow sustituye `DEPLOY_SHA_PLACEHOLDER` en `index.html` y `personal-project.html` por el **SHA completo** del commit (`github.sha`). El bloque va en el footer con `hidden` (no se ve en pantalla); puedes comprobarlo con **Ver código fuente** o inspeccionando `#deploy-revision` en DevTools. En local veras el texto literal `DEPLOY_SHA_PLACEHOLDER` hasta que pases por CI.
+
 ---
 
 ## Personalizacion rapida
