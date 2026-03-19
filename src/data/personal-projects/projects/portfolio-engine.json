@@ -4,7 +4,7 @@
   "titleEs": "Portfolio Engine",
   "description": "Modular personal website architecture with bilingual content, reusable components and polished recruiter UX.",
   "descriptionEs": "Arquitectura modular de portfolio personal con contenido bilingue, componentes reutilizables y UX orientada a recruiters.",
-  "repository": "https://github.com/hpenac01",
+  "repository": "https://github.com/hpenac01/portfolio",
   "technologies": ["HTML", "CSS", "JavaScript"],
   "overview": "Recruiter-oriented portfolio platform focused on clarity, conversion and maintainable content architecture.",
   "overviewEs": "Plataforma de portfolio orientada a recruiters, enfocada en claridad, conversion y arquitectura de contenido mantenible.",

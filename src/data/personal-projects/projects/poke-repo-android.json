@@ -4,7 +4,7 @@
   "titleEs": "Poke Repo Android",
   "description": "Android client for browsing the Pokédex: search, favorites, account flows and detail screens backed by a public Pokémon API.",
   "descriptionEs": "Cliente Android para explorar la Pokédex: búsqueda, favoritos, flujos de cuenta y pantallas de detalle sobre una API pública de Pokémon.",
-  "repository": "https://github.com/hpenac01",
+  "repository": "https://github.com/hpenac01/PokeRepo",
   "technologies": ["Kotlin", "Android", "REST API", "Material Design"],
   "overview": "Personal Android project focused on list/detail UX, authentication-style flows, favorites and settings, with a modular structure for API-driven content.",
   "overviewEs": "Proyecto Android personal centrado en UX de lista/detalle, flujos tipo autenticación, favoritos y ajustes, con estructura modular para contenido vía API.",
