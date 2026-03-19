@@ -11,13 +11,19 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
   <script>
     (function setBasePath() {
-      const marker = "/personal-project/";
       const pathname = window.location.pathname;
-      const markerIndex = pathname.indexOf(marker);
       let basePath = "";
 
-      if (markerIndex >= 0) {
-        basePath = pathname.slice(0, markerIndex);
+      const prettyMarker = "/personal-project/";
+      const prettyIndex = pathname.indexOf(prettyMarker);
+      if (prettyIndex >= 0) {
+        basePath = pathname.slice(0, prettyIndex);
+      } else {
+        const fileName = "personal-project.html";
+        const fileIndex = pathname.lastIndexOf(fileName);
+        if (fileIndex >= 0) {
+          basePath = pathname.slice(0, fileIndex).replace(/\/$/, "");
+        }
       }
 
       window.__BASE_PATH__ = basePath;
@@ -82,6 +88,16 @@
     </div>
   </div>
 
+  <script>
+    (function fixNavLinksForPagesBase() {
+      const bp = window.__BASE_PATH__ || "";
+      const home = bp ? `${bp}/index.html` : "/index.html";
+      const back = document.getElementById("back-link");
+      if (back) back.href = `${home}#personal-projects`;
+      const contact = document.querySelector(".btn.secondary");
+      if (contact) contact.href = `${home}#contact`;
+    })();
+  </script>
   <script>
     (function loadScripts() {
       const basePath = window.__BASE_PATH__ || "";
