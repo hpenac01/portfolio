@@ -1,0 +1,26 @@
+{
+  "id": "self-hosted-teleparty",
+  "title": "Self-hosted Teleparty",
+  "titleEs": "Teleparty self-hosted",
+  "description": "Experiment to run synchronized watch-party sessions on your own infra: room creation, playback sync and lightweight hosting.",
+  "descriptionEs": "Experimento para sesiones de visionado sincronizado en tu propia infra: salas, sincronía de reproducción y despliegue ligero.",
+  "repository": "https://github.com/hpenac01",
+  "technologies": ["Node.js", "WebSockets", "Docker"],
+  "overview": "Side project exploring how far you can replicate a Teleparty-style experience without relying on third-party SaaS, with focus on control and privacy.",
+  "overviewEs": "Proyecto lateral para explorar hasta qué punto se puede replicar una experiencia tipo Teleparty sin depender de SaaS de terceros, priorizando control y privacidad.",
+  "documentation": {
+    "en": [
+      "Room-based model for small groups.",
+      "Time-sync strategies for heterogeneous clients.",
+      "Packaging for self-hosted deployment."
+    ],
+    "es": [
+      "Modelo por salas para grupos reducidos.",
+      "Estrategias de sincronía temporal entre clientes heterogéneos.",
+      "Empaquetado orientado a despliegue self-hosted."
+    ]
+  },
+  "demo": [],
+  "liveDemoNote": "Screenshots and a public demo will be added when the UI stabilizes.",
+  "liveDemoNoteEs": "Las capturas y una demo pública se añadirán cuando la UI esté estable."
+}

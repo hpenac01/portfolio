@@ -2,6 +2,9 @@
   "projects": [
     "streambox-android.json",
     "qa-automation-lab.json",
+    "poke-repo-android.json",
+    "self-hosted-teleparty.json",
+    "studycoach-ai-tfg.json",
     "portfolio-engine.json"
   ]
 }

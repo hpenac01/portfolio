@@ -1,0 +1,26 @@
+{
+  "id": "studycoach-ai-tfg",
+  "title": "StudyCoach AI (TFG)",
+  "titleEs": "StudyCoach AI (TFG)",
+  "description": "Bachelor’s thesis project: an AI-assisted study coach to plan sessions, summarize notes and reinforce weak topics.",
+  "descriptionEs": "Trabajo fin de grado: asistente de estudio con IA para planificar sesiones, resumir apuntes y reforzar temas débiles.",
+  "repository": "https://github.com/hpenac01",
+  "technologies": ["Python", "LLM APIs", "Web"],
+  "overview": "End-to-end academic prototype combining retrieval-style workflows with generative support, evaluated with real study scenarios.",
+  "overviewEs": "Prototipo académico de extremo a extremo que combina flujos tipo recuperación con apoyo generativo, evaluado con escenarios de estudio reales.",
+  "documentation": {
+    "en": [
+      "Requirements aligned with TFG academic milestones.",
+      "Ethical and transparency considerations for AI tutoring.",
+      "Iterative UX for non-expert students."
+    ],
+    "es": [
+      "Requisitos alineados con hitos académicos del TFG.",
+      "Consideraciones éticas y de transparencia en tutoría con IA.",
+      "UX iterativa orientada a estudiantes no expertos."
+    ]
+  },
+  "demo": [],
+  "liveDemoNote": "Thesis deliverables and UI captures will be linked from this card after defense.",
+  "liveDemoNoteEs": "Los entregables del TFG y capturas de la UI se enlazarán desde esta ficha tras la defensa."
+}
