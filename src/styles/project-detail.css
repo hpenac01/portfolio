@@ -197,10 +197,12 @@ h2 {
 }
 
 .image-lightbox-content {
-  position: relative;
-  width: min(960px, 92vw);
+  width: fit-content;
+  max-width: min(960px, calc(100vw - 48px));
   max-height: 86vh;
-  padding: 16px;
+  min-width: 0;
+  padding: 12px;
+  box-sizing: border-box;
   border-radius: 14px;
   border: 1px solid var(--border);
   background: color-mix(in oklab, var(--surface-solid) 92%, transparent);
@@ -211,33 +213,22 @@ h2 {
 }
 
 .image-lightbox-img {
+  display: block;
   width: auto;
   height: auto;
   max-width: 100%;
-  max-height: calc(86vh - 32px);
+  max-height: calc(86vh - 48px);
   object-fit: contain;
   border-radius: 10px;
   border: 1px solid var(--border);
   background: color-mix(in oklab, var(--surface-solid) 82%, transparent);
-  margin: 0 auto;
+  margin: 0;
 }
 
-.image-lightbox-close {
-  position: absolute;
-  top: 10px;
-  right: 10px;
-  width: 42px;
-  height: 42px;
-  border: 1px solid var(--border);
-  border-radius: 999px;
-  background: color-mix(in oklab, var(--surface-solid) 80%, transparent);
-  color: var(--text);
-  font-size: 1.5rem;
-  line-height: 1;
-  cursor: pointer;
+.image-lightbox:focus {
+  outline: none;
 }
 
-.image-lightbox-close:focus-visible {
-  outline: 2px solid var(--primary);
-  outline-offset: 2px;
+.image-lightbox:focus-visible {
+  outline: none;
 }

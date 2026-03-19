@@ -20,7 +20,13 @@
       "UX iterativa orientada a estudiantes no expertos."
     ]
   },
-  "demo": [],
-  "liveDemoNote": "Thesis deliverables and UI captures will be linked from this card after defense.",
-  "liveDemoNoteEs": "Los entregables del TFG y capturas de la UI se enlazarán desde esta ficha tras la defensa."
+  "demo": [
+    {
+      "title": "In progress",
+      "titleEs": "En progreso",
+      "caption": "Thesis UI and evaluation screenshots will replace this placeholder after milestones are published.",
+      "captionEs": "Las capturas de la UI y evaluación del TFG sustituirán este placeholder cuando se publiquen los hitos.",
+      "file": "../in-progress.png"
+    }
+  ]
 }

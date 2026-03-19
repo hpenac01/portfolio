@@ -59,18 +59,15 @@ function openDiplomaLightbox(src, alt, triggerElement) {
   document.body.style.overflow = "hidden";
   lastFocusedImageButton = triggerElement || null;
 
-  const closeButton = document.getElementById("image-lightbox-close");
-  if (closeButton) closeButton.focus();
+  lightbox.focus();
 }
 
 function bindDiplomaLightboxEvents() {
   if (lightboxBound) return;
 
   const lightbox = document.getElementById("image-lightbox");
-  const closeButton = document.getElementById("image-lightbox-close");
-  if (!lightbox || !closeButton) return;
+  if (!lightbox) return;
 
-  closeButton.addEventListener("click", closeDiplomaLightbox);
   lightbox.addEventListener("click", event => {
     if (event.target === lightbox) closeDiplomaLightbox();
   });

@@ -12,6 +12,10 @@ You can replace `.png` with `.jpg` or `.webp` if you update the corresponding `f
 
 - `src/data/personal-projects/projects/poke-repo-android.json`
 
-**Portfolio Engine** uses an empty `demo` array: the detail page shows a **live demo** message (this site is the implementation) plus an optional CTA from `liveDemoCta` in `portfolio-engine.json`.
+**Shared placeholder** (referenced from several JSON files with `"file": "../in-progress.png"`):
 
-`self-hosted-teleparty` and `studycoach-ai-tfg` use an empty `demo` list for now; add images under `assets/projects/<id>/` when ready.
+- `assets/projects/in-progress.png`
+
+Used by **self-hosted-teleparty** and **studycoach-ai-tfg** until you add project-specific screenshots under `assets/projects/<id>/`.
+
+**Portfolio Engine** uses an empty `demo` array: the detail page shows a **live demo** message (this site is the implementation) plus an optional CTA from `liveDemoCta` in `portfolio-engine.json`.

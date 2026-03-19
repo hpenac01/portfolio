@@ -20,7 +20,13 @@
       "Empaquetado orientado a despliegue self-hosted."
     ]
   },
-  "demo": [],
-  "liveDemoNote": "Screenshots and a public demo will be added when the UI stabilizes.",
-  "liveDemoNoteEs": "Las capturas y una demo pública se añadirán cuando la UI esté estable."
+  "demo": [
+    {
+      "title": "In progress",
+      "titleEs": "En progreso",
+      "caption": "UI and deployment captures will replace this placeholder when the project matures.",
+      "captionEs": "Las capturas de UI y despliegue sustituirán este placeholder cuando el proyecto avance.",
+      "file": "../in-progress.png"
+    }
+  ]
 }
