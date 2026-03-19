@@ -22,27 +22,13 @@
       "Arquitectura estatica optimizada para carga rapida."
     ]
   },
-  "demo": [
-    {
-      "title": "Recruiter Hero",
-      "titleEs": "Hero Recruiter",
-      "caption": "Value proposition and key metrics.",
-      "captionEs": "Propuesta de valor y metricas clave.",
-      "file": "01-hero.png"
-    },
-    {
-      "title": "Experience Section",
-      "titleEs": "Seccion de Experiencia",
-      "caption": "Professional timeline and grouped skills.",
-      "captionEs": "Timeline profesional y habilidades agrupadas.",
-      "file": "02-experience.png"
-    },
-    {
-      "title": "Language Toggle",
-      "titleEs": "Selector de Idioma",
-      "caption": "Dynamic ES/EN content rendering.",
-      "captionEs": "Render dinamico de contenido ES/EN.",
-      "file": "03-language-toggle.png"
-    }
-  ]
+  "demo": [],
+  "liveDemoNote": "You are already viewing the live demo: this entire portfolio site is the Portfolio Engine implementation. Open the home page to explore all sections, language toggle and content-driven layout.",
+  "liveDemoNoteEs": "Ya estas viendo la demo en vivo: todo este sitio es la implementacion del Portfolio Engine. Abre la pagina de inicio para recorrer secciones, el idioma ES/EN y el layout basado en contenido.",
+  "liveDemoCta": {
+    "href": "index.html",
+    "hash": "home",
+    "label": "Open portfolio home",
+    "labelEs": "Ir al inicio del portfolio"
+  }
 }

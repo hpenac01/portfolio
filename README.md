@@ -40,8 +40,9 @@ Cuando conectes el repositorio y actives GitHub Pages, la URL sera:
 │   │       ├── config.json
 │   │       └── projects/
 │   │           ├── manifest.json
-│   │           ├── streambox-android.json
-│   │           ├── qa-automation-lab.json
+│   │           ├── poke-repo-android.json
+│   │           ├── self-hosted-teleparty.json
+│   │           ├── studycoach-ai-tfg.json
 │   │           └── portfolio-engine.json
 │   ├── js/
 │   │   ├── app.js
@@ -55,9 +56,10 @@ Cuando conectes el repositorio y actives GitHub Pages, la URL sera:
 │   ├── profile.jpeg
 │   └── projects/
 │       ├── README.md
-│       ├── streambox-android/
-│       ├── qa-automation-lab/
-│       └── portfolio-engine/
+│       ├── poke-repo-android/
+│       ├── self-hosted-teleparty/
+│       ├── studycoach-ai-tfg/
+│       └── (optional screenshots per project id)
 └── .github/workflows/deploy-pages.yml
 ```
 
@@ -109,6 +111,7 @@ La seccion **Personal Projects** y su detalle leen datos desde JSON:
   - `title` / `titleEs`
   - `caption` / `captionEs`
   - `file` (ej. `01-home.png`)
+- Si `demo` esta vacio: se muestra bloque de **demo en vivo** usando `liveDemoNote` / `liveDemoNoteEs` y opcionalmente `liveDemoCta` (`href`, `hash`, `label`, `labelEs`) — usado en **Portfolio Engine** (esta web es la demo).
 
 ### Capturas de demo
 
@@ -117,7 +120,7 @@ Se resuelven automaticamente con la ruta:
 `assets/projects/<id>/<file>`
 
 Ejemplo:
-- `assets/projects/streambox-android/01-home.png`
+- `assets/projects/poke-repo-android/list-and-search-poke-repo.png`
 
 ---
 

@@ -150,13 +150,13 @@ function createDemoItem(shot, project) {
 }
 
 function createLiveDemoItem(project) {
-  const title = detailLanguage === "es" ? "Demo en vivo" : "Live demo";
   const message =
     detailLanguage === "es"
       ? project.liveDemoNoteEs || project.liveDemoNote
       : project.liveDemoNote || project.liveDemoNoteEs;
 
   const container = document.createElement("div");
+  container.className = "live-demo-block";
   const demoShot = document.createElement("div");
   demoShot.className = "demo-shot demo-shot-live";
   demoShot.textContent =
@@ -166,6 +166,26 @@ function createLiveDemoItem(project) {
       : "This project is the live demo you are currently viewing.");
 
   container.appendChild(demoShot);
+
+  const cta = project.liveDemoCta;
+  if (cta && typeof cta.href === "string" && cta.href.trim()) {
+    const link = document.createElement("a");
+    const path = cta.href.replace(/^\//, "");
+    const hashPart =
+      typeof cta.hash === "string" && cta.hash.trim()
+        ? `#${cta.hash.replace(/^#/, "")}`
+        : "";
+    const prefix = basePath.endsWith("/")
+      ? basePath.slice(0, -1)
+      : basePath;
+    link.href = prefix ? `${prefix}/${path}${hashPart}` : `${path}${hashPart}`;
+    link.className = "btn primary live-demo-cta";
+    link.textContent =
+      detailLanguage === "es"
+        ? cta.labelEs || cta.label || "Ver demo"
+        : cta.label || cta.labelEs || "View demo";
+    container.appendChild(link);
+  }
 
   return container;
 }

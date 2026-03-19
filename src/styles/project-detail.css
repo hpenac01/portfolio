@@ -99,6 +99,17 @@ h2 {
   gap: 12px;
 }
 
+.live-demo-block {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  align-items: stretch;
+}
+
+.live-demo-block .live-demo-cta {
+  align-self: flex-start;
+}
+
 .demo-shot {
   min-height: 170px;
   background: linear-gradient(160deg, #192846, #121d34);
@@ -110,6 +121,12 @@ h2 {
   font-size: 0.9rem;
   text-align: center;
   padding: 16px;
+}
+
+.demo-shot-live {
+  border-style: solid;
+  border-color: rgba(56, 189, 248, 0.4);
+  background: linear-gradient(160deg, #152238, #10192c);
 }
 
 .demo-image {
