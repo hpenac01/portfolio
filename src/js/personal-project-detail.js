@@ -13,6 +13,8 @@ let ui = {
 };
 let dataBasePath = `${basePath}/src/data/personal-projects/projects`;
 let assetsBasePath = `${basePath}/assets/projects`;
+let lightboxBound = false;
+let lastFocusedImageButton = null;
 
 function getProjectId() {
   const params = new URLSearchParams(window.location.search);
@@ -37,6 +39,72 @@ const contactButton = document.querySelector(".btn.secondary");
 
 function isNonEmptyString(value) {
   return typeof value === "string" && value.trim().length > 0;
+}
+
+function closeDiplomaLightbox() {
+  const lightbox = document.getElementById("image-lightbox");
+  const image = document.getElementById("image-lightbox-img");
+  if (!lightbox || !image) return;
+
+  lightbox.hidden = true;
+  lightbox.setAttribute("aria-hidden", "true");
+  image.src = "";
+  image.alt = "";
+  document.body.style.removeProperty("overflow");
+
+  if (lastFocusedImageButton) {
+    lastFocusedImageButton.focus();
+    lastFocusedImageButton = null;
+  }
+}
+
+function openDiplomaLightbox(src, alt, triggerElement) {
+  const lightbox = document.getElementById("image-lightbox");
+  const image = document.getElementById("image-lightbox-img");
+  if (!lightbox || !image) return;
+
+  image.src = src;
+  image.alt = alt || "";
+  lightbox.hidden = false;
+  lightbox.setAttribute("aria-hidden", "false");
+  document.body.style.overflow = "hidden";
+  lastFocusedImageButton = triggerElement || null;
+
+  const closeButton = document.getElementById("image-lightbox-close");
+  if (closeButton) closeButton.focus();
+}
+
+function bindDiplomaLightboxEvents() {
+  if (lightboxBound) return;
+
+  const lightbox = document.getElementById("image-lightbox");
+  const closeButton = document.getElementById("image-lightbox-close");
+  if (!lightbox || !closeButton) return;
+
+  closeButton.addEventListener("click", closeDiplomaLightbox);
+  lightbox.addEventListener("click", event => {
+    if (event.target === lightbox) closeDiplomaLightbox();
+  });
+  document.addEventListener("keydown", event => {
+    if (event.key === "Escape" && !lightbox.hidden) {
+      closeDiplomaLightbox();
+    }
+  });
+
+  lightboxBound = true;
+}
+
+function bindProjectDetailDemoLightboxDelegation() {
+  if (!demoGrid || demoGrid.dataset.demoLightboxBound === "1") return;
+  demoGrid.dataset.demoLightboxBound = "1";
+  demoGrid.addEventListener("click", event => {
+    const button = event.target.closest(".certification-diploma-trigger");
+    if (!button || !demoGrid.contains(button)) return;
+    const imageSrc = button.getAttribute("data-image-src");
+    const imageAlt = button.getAttribute("data-image-alt");
+    if (!isNonEmptyString(imageSrc)) return;
+    openDiplomaLightbox(imageSrc, imageAlt, button);
+  });
 }
 
 async function checkAssetExists(url) {
@@ -120,31 +188,45 @@ function createDemoItem(shot, project) {
     detailLanguage === "es" ? shot.captionEs || shot.caption : shot.caption;
 
   const container = document.createElement("div");
-  const demoShot = document.createElement("div");
-  demoShot.className = "demo-shot";
+  const shotCaption = document.createElement("p");
+  shotCaption.className = "shot-caption";
+  shotCaption.textContent = caption;
 
   const imagePath =
     shot.image || `${assetsBasePath}/${project.id}/${shot.file || ""}`;
 
   if (shot.image || shot.file) {
+    const figure = document.createElement("figure");
+    figure.className = "certification-diploma-wrap";
+
+    const button = document.createElement("button");
+    button.type = "button";
+    button.className = "certification-diploma-trigger";
+    button.setAttribute("data-image-src", imagePath);
+    button.setAttribute("data-image-alt", title);
+    button.setAttribute("aria-label", title);
+
     const image = document.createElement("img");
     image.src = imagePath;
     image.alt = title;
-    image.className = "demo-image";
+    image.className = "certification-diploma";
     image.loading = "lazy";
+    image.decoding = "async";
     image.onerror = () => {
-      demoShot.textContent = `${ui.demoPlaceholder}: ${title}`;
+      figure.className = "demo-shot";
+      figure.textContent = `${ui.demoPlaceholder}: ${title}`;
     };
-    demoShot.appendChild(image);
+
+    button.appendChild(image);
+    figure.appendChild(button);
+    container.appendChild(figure);
   } else {
-    demoShot.textContent = `${ui.demoPlaceholder}: ${title}`;
+    const placeholder = document.createElement("div");
+    placeholder.className = "demo-shot";
+    placeholder.textContent = `${ui.demoPlaceholder}: ${title}`;
+    container.appendChild(placeholder);
   }
 
-  const shotCaption = document.createElement("p");
-  shotCaption.className = "shot-caption";
-  shotCaption.textContent = caption;
-
-  container.appendChild(demoShot);
   container.appendChild(shotCaption);
   return container;
 }
@@ -225,6 +307,9 @@ function renderProjectDetail(project) {
   contactButton.href = `${basePath}/index.html#contact`;
   contactButton.textContent = ui.contact;
 
+  docList.innerHTML = "";
+  demoGrid.innerHTML = "";
+
   documentation.forEach(item => {
     const li = document.createElement("li");
     li.textContent = item;
@@ -240,6 +325,10 @@ function renderProjectDetail(project) {
     demoGrid.appendChild(createDemoItem(shot, project));
   });
 }
+
+bindDiplomaLightboxEvents();
+bindProjectDetailDemoLightboxDelegation();
+closeDiplomaLightbox();
 
 loadProjects()
   .then(async projects => {

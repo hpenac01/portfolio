@@ -10,39 +10,34 @@
   "overviewEs": "Proyecto Android personal centrado en UX de lista/detalle, flujos tipo autenticación, favoritos y ajustes, con estructura modular para contenido vía API.",
   "documentation": {
     "en": [
+      "Login and sign-up flows before accessing personalized data.",
       "Catalog list with search to explore species quickly.",
-      "Login and account areas to structure user-specific data.",
       "Pokémon detail view with rich metadata presentation.",
-      "Favorites and settings for a complete app shell."
+      "Account hub with saved favorite Pokémon.",
+      "Settings and preferences to round out the app shell."
     ],
     "es": [
+      "Flujos de inicio de sesión y registro antes de datos personalizados.",
       "Listado con búsqueda para explorar especies con rapidez.",
-      "Áreas de login y cuenta para organizar datos de usuario.",
       "Vista de detalle de Pokémon con presentación clara de metadata.",
-      "Favoritos y ajustes para un recorrido completo de la app."
+      "Área de cuenta con Pokémon favoritos guardados.",
+      "Ajustes y preferencias para completar la experiencia de la app."
     ]
   },
   "demo": [
     {
-      "title": "List & search",
-      "titleEs": "Lista y búsqueda",
-      "caption": "Browse and filter the Pokédex from the main list.",
-      "captionEs": "Explora y filtra la Pokédex desde el listado principal.",
-      "file": "list-and-search-poke-repo.png"
-    },
-    {
-      "title": "Log in",
-      "titleEs": "Inicio de sesión",
-      "caption": "Entry flow for the user session.",
-      "captionEs": "Flujo de entrada a la sesión de usuario.",
+      "title": "Login & sign-in",
+      "titleEs": "Login y registro",
+      "caption": "Authentication entry: sign in and account access before exploring the catalog.",
+      "captionEs": "Entrada de autenticación: inicio de sesión y acceso a la cuenta antes de explorar el catálogo.",
       "file": "log-in-poke-repo.png"
     },
     {
-      "title": "Account & favorites",
-      "titleEs": "Cuenta y favoritos",
-      "caption": "Profile space with saved favorite Pokémon.",
-      "captionEs": "Espacio de perfil con Pokémon favoritos guardados.",
-      "file": "my-account-and-favorites-poke-repo.png"
+      "title": "Explore catalog",
+      "titleEs": "Explorar catálogo",
+      "caption": "Browse and search the Pokédex from the main list.",
+      "captionEs": "Navega y busca en la Pokédex desde el listado principal.",
+      "file": "list-and-search-poke-repo.png"
     },
     {
       "title": "Pokémon detail",
@@ -52,10 +47,17 @@
       "file": "pokemon-detail-poke-repo.png"
     },
     {
-      "title": "Settings",
-      "titleEs": "Ajustes",
-      "caption": "App preferences and configuration.",
-      "captionEs": "Preferencias y configuración de la app.",
+      "title": "My account & favorites",
+      "titleEs": "Mi cuenta y favoritos",
+      "caption": "Profile space with saved favorite Pokémon.",
+      "captionEs": "Espacio de perfil con Pokémon favoritos guardados.",
+      "file": "my-account-and-favorites-poke-repo.png"
+    },
+    {
+      "title": "Preferences",
+      "titleEs": "Preferencias",
+      "caption": "Settings and app configuration.",
+      "captionEs": "Ajustes y configuración de la aplicación.",
       "file": "settings-poke-repo.png"
     }
   ]

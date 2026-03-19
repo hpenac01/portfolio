@@ -1,10 +1,12 @@
 :root {
   --bg: #060a16;
   --surface: #111a2e;
+  --surface-solid: #111a2e;
   --border: rgba(148, 163, 184, 0.2);
   --text: #e2e8f0;
   --muted: #94a3b8;
   --primary: #38bdf8;
+  --shadow: 0 20px 45px rgba(2, 6, 23, 0.35);
 }
 
 * {
@@ -140,4 +142,102 @@ h2 {
   margin-top: 8px;
   color: var(--muted);
   font-size: 0.88rem;
+}
+
+/* Same thumbnail + lightbox pattern as certifications (main.css) */
+.certification-diploma-wrap {
+  border-radius: 12px;
+  overflow: hidden;
+  border: 1px solid var(--border);
+  background: color-mix(in oklab, var(--surface-solid) 82%, transparent);
+  margin-bottom: 4px;
+  max-width: 100%;
+  max-height: 240px;
+}
+
+.certification-diploma-trigger {
+  width: 100%;
+  max-width: 100%;
+  max-height: 240px;
+  padding: 10px;
+  border: 0;
+  background: transparent;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: zoom-in;
+}
+
+.certification-diploma-trigger:focus-visible {
+  outline: 2px solid var(--primary);
+  outline-offset: -2px;
+}
+
+.certification-diploma {
+  width: auto;
+  height: auto;
+  max-width: 100%;
+  max-height: 220px;
+  object-fit: contain;
+  display: block;
+}
+
+.image-lightbox {
+  position: fixed;
+  inset: 0;
+  z-index: 30;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+}
+
+.image-lightbox[hidden] {
+  display: none;
+}
+
+.image-lightbox-content {
+  position: relative;
+  width: min(960px, 92vw);
+  max-height: 86vh;
+  padding: 16px;
+  border-radius: 14px;
+  border: 1px solid var(--border);
+  background: color-mix(in oklab, var(--surface-solid) 92%, transparent);
+  box-shadow: var(--shadow);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.image-lightbox-img {
+  width: auto;
+  height: auto;
+  max-width: 100%;
+  max-height: calc(86vh - 32px);
+  object-fit: contain;
+  border-radius: 10px;
+  border: 1px solid var(--border);
+  background: color-mix(in oklab, var(--surface-solid) 82%, transparent);
+  margin: 0 auto;
+}
+
+.image-lightbox-close {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  width: 42px;
+  height: 42px;
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  background: color-mix(in oklab, var(--surface-solid) 80%, transparent);
+  color: var(--text);
+  font-size: 1.5rem;
+  line-height: 1;
+  cursor: pointer;
+}
+
+.image-lightbox-close:focus-visible {
+  outline: 2px solid var(--primary);
+  outline-offset: 2px;
 }
