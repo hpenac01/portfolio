@@ -1,32 +1,48 @@
 {
   "id": "streambox-android",
-  "title": "[PERSONAL PROJECT TITLE]",
-  "titleEs": "[TITULO DEL PROYECTO PERSONAL]",
-  "description": "[SHORT ENGLISH DESCRIPTION FOR THE CARD]",
-  "descriptionEs": "[DESCRIPCION CORTA EN ESPANOL PARA LA TARJETA]",
-  "repository": "https://github.com/your-username/your-project-repo",
-  "technologies": ["[TECH 1]", "[TECH 2]", "[TECH 3]"],
-  "overview": "[LONGER ENGLISH OVERVIEW FOR DETAIL PAGE]",
-  "overviewEs": "[RESUMEN LARGO EN ESPANOL PARA LA PAGINA DE DETALLE]",
+  "title": "StreamBox Android",
+  "titleEs": "StreamBox Android",
+  "description": "Android app concept focused on streaming catalog browsing, playback state handling and scalable feature modules.",
+  "descriptionEs": "Concepto de app Android centrada en exploracion de catalogo de streaming, gestion de estado de reproduccion y modulos escalables.",
+  "repository": "https://github.com/hpenac01",
+  "technologies": ["Kotlin", "Android", "REST API"],
+  "overview": "Android product concept for streaming consumption with a modular architecture and robust UX state management.",
+  "overviewEs": "Concepto de producto Android para consumo de streaming con arquitectura modular y gestion robusta de estados UX.",
   "documentation": {
     "en": [
-      "[EN BULLET 1]",
-      "[EN BULLET 2]",
-      "[EN BULLET 3]"
+      "Layered architecture to improve maintainability and scalability.",
+      "Catalog, content-detail and playback continuity user flows.",
+      "Loading, success and error states for resilient interactions.",
+      "Prepared integration points for auth and user favorites."
     ],
     "es": [
-      "[ES BULLET 1]",
-      "[ES BULLET 2]",
-      "[ES BULLET 3]"
+      "Arquitectura por capas para mejorar mantenibilidad y escalabilidad.",
+      "Flujos de catalogo, detalle de contenido y continuidad de reproduccion.",
+      "Estados de carga, exito y error para interacciones resilientes.",
+      "Puntos de integracion preparados para auth y favoritos."
     ]
   },
   "demo": [
     {
-      "title": "In progress",
-      "titleEs": "En progreso",
-      "caption": "Replace with your project screenshots.",
-      "captionEs": "Sustituye con capturas de tu proyecto.",
-      "file": "../in-progress.png"
+      "title": "Home / Catalog",
+      "titleEs": "Home / Catalogo",
+      "caption": "Main screen with content browsing experience.",
+      "captionEs": "Pantalla principal con experiencia de exploracion de contenido.",
+      "file": "01-home.png"
+    },
+    {
+      "title": "Content Detail",
+      "titleEs": "Detalle de Contenido",
+      "caption": "Detail screen with metadata and actions.",
+      "captionEs": "Vista de detalle con metadata y acciones.",
+      "file": "02-detail.png"
+    },
+    {
+      "title": "Playback",
+      "titleEs": "Reproduccion",
+      "caption": "Playback state and user controls.",
+      "captionEs": "Estado de reproduccion y controles de usuario.",
+      "file": "03-playback.png"
     }
   ]
 }

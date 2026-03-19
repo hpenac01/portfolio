@@ -16,7 +16,7 @@ const projectTranslations = {
 };
 
 let projectsData = [];
-let currentLanguage = localStorage.getItem("portfolio-template-language") || "en";
+let currentLanguage = localStorage.getItem("hugo-portfolio-language") || "en";
 
 function translateProjectText(text, language) {
   if (language !== "es") return text;

@@ -1,23 +1,23 @@
 [
   {
-    "title": "[PROJECT TITLE 1]",
-    "description": "[ONE-LINE DESCRIPTION OF PROJECT 1]",
-    "technologies": ["[TECH 1]", "[TECH 2]", "[TECH 3]"],
-    "github": "https://github.com/your-username/your-repo-1",
+    "title": "ClaroVideo Roku Streaming App",
+    "description": "Feature development for a large-scale streaming app on Roku devices within distributed engineering teams.",
+    "technologies": ["BrightScript", "Roku", "Media Streaming"],
+    "github": "https://github.com/hpenac01",
     "demo": ""
   },
   {
-    "title": "[PROJECT TITLE 2]",
-    "description": "[ONE-LINE DESCRIPTION OF PROJECT 2]",
-    "technologies": ["[TECH 1]", "[TECH 2]", "[TECH 3]"],
-    "github": "https://github.com/your-username/your-repo-2",
+    "title": "Android Internal App (Mobile + STB)",
+    "description": "Android application development for mobile and set-top box devices with iterative feature delivery.",
+    "technologies": ["Kotlin", "Android", "STB"],
+    "github": "https://github.com/hpenac01",
     "demo": ""
   },
   {
-    "title": "[PROJECT TITLE 3]",
-    "description": "[ONE-LINE DESCRIPTION OF PROJECT 3]",
-    "technologies": ["[TECH 1]", "[TECH 2]", "[TECH 3]"],
-    "github": "https://github.com/your-username/your-repo-3",
+    "title": "QA Automation for Media Platforms",
+    "description": "Automated testing with Playwright and Pytest across streaming and digital media platforms.",
+    "technologies": ["Playwright", "Pytest", "Cross-platform QA"],
+    "github": "https://github.com/hpenac01",
     "demo": ""
   }
 ]

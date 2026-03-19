@@ -1,12 +1,12 @@
 [
-  {
-    "title": "[CERTIFICATION TITLE]",
-    "titleEs": "[TITULO DE CERTIFICACION]",
-    "issuer": "[ISSUER NAME]",
-    "issuerEs": "[NOMBRE DEL EMISOR]",
-    "date": "MM-YYYY",
-    "diplomaImage": "assets/certifications/your-certificate-image.png",
-    "diplomaImageAlt": "[CERTIFICATION TITLE] diploma",
-    "diplomaImageAltEs": "Diploma de [TITULO DE CERTIFICACION]"
-  }
+    {
+        "title": "Certification in AI-based Development",
+        "titleEs": "Certificado de Iniciación al Desarrollo con IA",
+        "issuer": "BIG School & Brais Moure (MoureDev)",
+        "issuerEs": "BIG School & Brais Moure (MoureDev)",
+        "date": "03-2026",
+        "diplomaImage": "assets/certifications/certification-in-ai-based-development.png",
+        "diplomaImageAlt": "Certification in AI-based Development diploma",
+        "diplomaImageAltEs": "Diploma de Iniciación al Desarrollo con IA"
+    }
 ]

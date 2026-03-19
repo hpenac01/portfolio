@@ -1,5 +1,5 @@
 const basePath = window.__BASE_PATH__ || "";
-const detailLanguage = localStorage.getItem("portfolio-template-language") || "en";
+const detailLanguage = localStorage.getItem("hugo-portfolio-language") || "en";
 let detailConfig = null;
 let ui = {
   back: "← Back to personal projects",
@@ -192,7 +192,7 @@ function renderProjectDetail(project) {
   const documentation = project.documentation?.[detailLanguage] || [];
   const demo = Array.isArray(project.demo) ? project.demo : [];
 
-  document.title = `${title} | [YOUR NAME]`;
+  document.title = `${title} | Hugo Pena Cantonero`;
   document.documentElement.lang = detailLanguage;
   projectTitle.textContent = title;
   projectOverview.textContent = overview;

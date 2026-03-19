@@ -1,5 +1,5 @@
 let personalProjectsLanguage =
-  localStorage.getItem("portfolio-template-language") || "en";
+  localStorage.getItem("hugo-portfolio-language") || "en";
 let personalProjectsData = [];
 let personalProjectsConfig = null;
 let railControlsBound = false;

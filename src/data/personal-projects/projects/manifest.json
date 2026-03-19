@@ -1,8 +1,7 @@
 {
   "projects": [
-    "poke-repo-android.json",
-    "self-hosted-teleparty.json", 
-    "studycoach-ai-tfg.json",
+    "streambox-android.json",
+    "qa-automation-lab.json",
     "portfolio-engine.json"
   ]
 }

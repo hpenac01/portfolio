@@ -1,5 +1,5 @@
 let certificationsLanguage =
-  localStorage.getItem("portfolio-template-language") || "en";
+  localStorage.getItem("hugo-portfolio-language") || "en";
 let certificationsData = [];
 let lightboxBound = false;
 let lastFocusedImageButton = null;
