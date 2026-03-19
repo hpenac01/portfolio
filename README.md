@@ -36,6 +36,7 @@ Cuando conectes el repositorio y actives GitHub Pages, la URL sera:
 ├── src/
 │   ├── data/
 │   │   ├── projects.json
+│   │   ├── trainings.json
 │   │   └── personal-projects/
 │   │       ├── config.json
 │   │       └── projects/
@@ -47,6 +48,7 @@ Cuando conectes el repositorio y actives GitHub Pages, la URL sera:
 │   ├── js/
 │   │   ├── app.js
 │   │   ├── projects.js
+│   │   ├── trainings.js
 │   │   ├── personal-projects.js
 │   │   └── personal-project-detail.js
 │   └── styles/
@@ -82,6 +84,14 @@ Abrir:
 
 - Abre el proyecto
 - Ejecuta Live Server sobre `index.html`
+
+---
+
+## Formaciones (seccion Proyectos)
+
+- Datos: `src/data/trainings.json` (array de objetos).
+- Campos: `title` / `titleEs`, `provider` / `providerEs`, `status` (`in_progress` | `completed`), `period` / `periodEs`, `description` / `descriptionEs`, opcional `topics[]`, opcional `url`.
+- Textos de cabecera (EN/ES): claves `trainings.*` en `src/js/app.js`.
 
 ---
 
@@ -157,6 +167,7 @@ En cada deploy, el workflow sustituye `DEPLOY_SHA_PLACEHOLDER` en `index.html` y
 
 - Textos generales: `src/js/app.js`
 - Proyectos profesionales: `src/data/projects.json`
+- Formaciones: `src/data/trainings.json`
 - Proyectos personales: `src/data/personal-projects/projects/*.json`
 - Config UI reusable: `src/data/personal-projects/config.json`
 - Estilos globales: `src/styles/main.css`

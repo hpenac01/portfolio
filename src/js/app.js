@@ -63,6 +63,10 @@ const translations = {
     "personalProjects.title": "Personal projects",
     "personalProjects.subtitle":
       "Open-source projects with repository access and dedicated detail pages including documentation and visual demos.",
+    "trainings.eyebrow": "Continuous learning",
+    "trainings.title": "Training programs",
+    "trainings.subtitle":
+      "Structured courses and programs, whether in progress or completed, complementing hands-on project work.",
     "certifications.eyebrow": "Validated learning",
     "certifications.title": "Certifications",
     "certifications.subtitle":
@@ -139,6 +143,10 @@ const translations = {
     "personalProjects.title": "Proyectos personales",
     "personalProjects.subtitle":
       "Proyectos open-source con acceso al repositorio y paginas de detalle con documentacion y demo visual.",
+    "trainings.eyebrow": "Formación continua",
+    "trainings.title": "Formaciones",
+    "trainings.subtitle":
+      "Cursos y programas estructurados, en curso o finalizados, que complementan la práctica en proyectos.",
     "certifications.eyebrow": "Aprendizaje validado",
     "certifications.title": "Certificaciones",
     "certifications.subtitle":

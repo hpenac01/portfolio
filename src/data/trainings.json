@@ -1,0 +1,55 @@
+[
+  {
+    "title": "Junior Backend Developer",
+    "titleEs": "Desarrollador Backend Junior",
+    "provider": "Self-directed learning",
+    "providerEs": "Formación autodidacta",
+    "status": "in_progress",
+    "period": "Mar 2026 — present",
+    "periodEs": "Mar 2026 — actualidad",
+    "description": "Building the FoodShare API with TypeScript, Express, Prisma, PostgreSQL, JWT auth, Dockerized environments, automated testing and CI/CD fundamentals.",
+    "descriptionEs": "Construcción de la FoodShare API con TypeScript, Express, Prisma, PostgreSQL, autenticación JWT, entornos dockerizados, pruebas automatizadas y fundamentos de CI/CD.",
+    "topics": [
+        "TypeScript", 
+        "Node.js", 
+        "Express", 
+        "Prisma", 
+        "PostgreSQL", 
+        "Docker", 
+        "JWT", 
+        "Jest", 
+        "Swagger", 
+        "GitHub Actions"
+    ],
+    "url": ""
+  }, 
+  {
+    "title": "Mid Android Developer",
+    "titleEs": "Desarrollador Android Intermedio",
+    "provider": "Self-directed learning",
+    "providerEs": "Formación autodidacta",
+    "status": "in_progress",
+    "period": "Mar 2026 — present",
+    "periodEs": "Mar 2026 — actualidad",
+    "description": "Focus on advanced Android app development, including cloud integration (Firebase), advanced UI/UX, testing, performance optimization, dependency injection, and app publishing.",
+    "descriptionEs": "Enfoque en desarrollo avanzado de aplicaciones Android, incluyendo integración con la nube (Firebase), UI/UX avanzado, testing, optimización de rendimiento, inyección de dependencias y publicación de apps.",
+    "topics": [
+        "Kotlin",
+        "Android Studio",
+        "Material Design",
+        "Room Database",
+        "RecyclerView",
+        "MVVM",
+        "Notifications",
+        "WorkManager",
+        "Retrofit",
+        "Firebase",
+        "Dependency Injection (Hilt/Dagger)",
+        "Unit Testing",
+        "UI Testing",
+        "Performance Optimization",
+        "Google Play Publishing"
+    ],
+    "url": ""
+  }
+]

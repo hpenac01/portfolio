@@ -333,12 +333,59 @@ p {
   gap: 16px;
 }
 
+.trainings-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 260px), 420px));
+  gap: 12px;
+  margin-top: 6px;
+  justify-content: start;
+}
+
+.trainings-grid .training-card {
+  width: 100%;
+  max-width: 420px;
+}
+
+.training-card-head {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 8px 12px;
+}
+
+.training-period {
+  margin: 0;
+}
+
+.training-status {
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  padding: 4px 10px;
+  border-radius: 999px;
+  border: 1px solid var(--border);
+  width: fit-content;
+}
+
+.training-status--in_progress {
+  color: color-mix(in oklab, var(--primary) 75%, var(--text));
+  border-color: color-mix(in oklab, var(--primary) 35%, var(--border));
+  background: color-mix(in oklab, var(--primary) 12%, transparent);
+}
+
+.training-status--completed {
+  color: color-mix(in oklab, var(--muted) 90%, var(--text));
+  background: color-mix(in oklab, var(--surface-solid) 70%, transparent);
+}
+
 .certifications-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-  gap: 16px;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 260px), 420px));
+  gap: 12px;
   margin-top: 18px;
-  justify-items: start;
+  justify-content: start;
 }
 
 .certification-card {
@@ -347,7 +394,6 @@ p {
   gap: 10px;
   width: 100%;
   max-width: 420px;
-  justify-self: start;
 }
 
 .certification-diploma-wrap {
