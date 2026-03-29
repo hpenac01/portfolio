@@ -1,5 +1,47 @@
 const basePath = window.__BASE_PATH__ || "";
-const detailLanguage = localStorage.getItem("hugo-portfolio-language") || "en";
+const THEME_KEY = "hugo-portfolio-theme";
+
+function applySavedTheme() {
+  const savedTheme = localStorage.getItem(THEME_KEY);
+  if (savedTheme === "light") {
+    document.body.classList.add("light");
+  } else {
+    document.body.classList.remove("light");
+  }
+  const themeToggle = document.getElementById("theme-toggle");
+  if (themeToggle) {
+    themeToggle.textContent = document.body.classList.contains("light") ? "☀️" : "🌙";
+  }
+}
+
+function handleThemeToggle() {
+  document.body.classList.toggle("light");
+  const nextTheme = document.body.classList.contains("light") ? "light" : "dark";
+  localStorage.setItem(THEME_KEY, nextTheme);
+  const themeToggle = document.getElementById("theme-toggle");
+  if (themeToggle) {
+    themeToggle.textContent = document.body.classList.contains("light") ? "☀️" : "🌙";
+  }
+}
+
+applySavedTheme();
+document.getElementById("theme-toggle")?.addEventListener("click", handleThemeToggle);
+
+const LANGUAGE_KEY = "hugo-portfolio-language";
+
+function getDetailLanguage() {
+  return localStorage.getItem(LANGUAGE_KEY) === "es" ? "es" : "en";
+}
+
+function updateLanguageButton() {
+  const languageToggle = document.getElementById("language-toggle");
+  if (languageToggle) {
+    languageToggle.textContent = getDetailLanguage() === "es" ? "ES" : "EN";
+  }
+}
+
+updateLanguageButton();
+
 let detailConfig = null;
 let ui = {
   back: "← Back to personal projects",
@@ -15,6 +57,7 @@ let dataBasePath = `${basePath}/src/data/personal-projects/projects`;
 let assetsBasePath = `${basePath}/assets/projects`;
 let lightboxBound = false;
 let lastFocusedImageButton = null;
+let resolvedProject;
 
 function getProjectId() {
   const params = new URLSearchParams(window.location.search);
@@ -120,13 +163,10 @@ async function checkAssetExists(url) {
   }
 }
 
-async function loadProjects() {
-  const configResponse = await fetch(
-    `${basePath}/src/data/personal-projects/config.json`
-  );
-  detailConfig = await configResponse.json();
-  const selectedUi =
-    detailConfig?.ui?.[detailLanguage] || detailConfig?.ui?.en || {};
+function buildUiFromConfig() {
+  if (!detailConfig) return;
+  const lang = getDetailLanguage();
+  const selectedUi = detailConfig?.ui?.[lang] || detailConfig?.ui?.en || {};
   ui = {
     back: selectedUi.detailBack || "← Back to personal projects",
     contact: selectedUi.detailContact || "Contact",
@@ -138,6 +178,14 @@ async function loadProjects() {
       selectedUi.detailNotFoundBody || "The selected project does not exist.",
     demoPlaceholder: selectedUi.detailDemoPlaceholder || "Add screenshot here"
   };
+}
+
+async function loadProjects() {
+  const configResponse = await fetch(
+    `${basePath}/src/data/personal-projects/config.json`
+  );
+  detailConfig = await configResponse.json();
+  buildUiFromConfig();
 
   dataBasePath = `${basePath}/${detailConfig?.paths?.projectsBase || "src/data/personal-projects/projects"}`;
   assetsBasePath = `${basePath}/${detailConfig?.paths?.assetsBase || "assets/projects"}`;
@@ -180,9 +228,9 @@ async function validateProjectForDetail(project) {
 }
 
 function createDemoItem(shot, project) {
-  const title = detailLanguage === "es" ? shot.titleEs || shot.title : shot.title;
-  const caption =
-    detailLanguage === "es" ? shot.captionEs || shot.caption : shot.caption;
+  const lang = getDetailLanguage();
+  const title = lang === "es" ? shot.titleEs || shot.title : shot.title;
+  const caption = lang === "es" ? shot.captionEs || shot.caption : shot.caption;
 
   const container = document.createElement("div");
   const shotCaption = document.createElement("p");
@@ -229,8 +277,9 @@ function createDemoItem(shot, project) {
 }
 
 function createLiveDemoItem(project) {
+  const lang = getDetailLanguage();
   const message =
-    detailLanguage === "es"
+    lang === "es"
       ? project.liveDemoNoteEs || project.liveDemoNote
       : project.liveDemoNote || project.liveDemoNoteEs;
 
@@ -240,7 +289,7 @@ function createLiveDemoItem(project) {
   demoShot.className = "demo-shot demo-shot-live";
   demoShot.textContent =
     message ||
-    (detailLanguage === "es"
+    (lang === "es"
       ? "Este proyecto es la demo que estas viendo ahora."
       : "This project is the live demo you are currently viewing.");
 
@@ -260,7 +309,7 @@ function createLiveDemoItem(project) {
     link.href = prefix ? `${prefix}/${path}${hashPart}` : `${path}${hashPart}`;
     link.className = "btn primary live-demo-cta";
     link.textContent =
-      detailLanguage === "es"
+      lang === "es"
         ? cta.labelEs || cta.label || "Ver demo"
         : cta.label || cta.labelEs || "View demo";
     container.appendChild(link);
@@ -270,6 +319,7 @@ function createLiveDemoItem(project) {
 }
 
 function renderNotFound() {
+  document.documentElement.lang = getDetailLanguage();
   projectTitle.textContent = ui.notFoundTitle;
   projectOverview.textContent = ui.notFoundBody;
   projectRepo.style.display = "none";
@@ -282,17 +332,18 @@ function renderNotFound() {
 }
 
 function renderProjectDetail(project) {
-  const title =
-    detailLanguage === "es" ? project.titleEs || project.title : project.title;
+  const lang = getDetailLanguage();
+  const title = lang === "es" ? project.titleEs || project.title : project.title;
   const overview =
-    detailLanguage === "es"
+    lang === "es"
       ? project.overviewEs || project.overview || project.description
       : project.overview || project.description;
-  const documentation = project.documentation?.[detailLanguage] || [];
+  const documentation = project.documentation?.[lang] || [];
   const demo = Array.isArray(project.demo) ? project.demo : [];
 
   document.title = `${title} | Hugo Pena Cantonero`;
-  document.documentElement.lang = detailLanguage;
+  document.documentElement.lang = lang;
+  projectRepo.style.display = "";
   projectTitle.textContent = title;
   projectOverview.textContent = overview;
   projectRepo.href = project.repository;
@@ -323,6 +374,21 @@ function renderProjectDetail(project) {
   });
 }
 
+function handleLanguageToggle() {
+  const next = getDetailLanguage() === "en" ? "es" : "en";
+  localStorage.setItem(LANGUAGE_KEY, next);
+  updateLanguageButton();
+  buildUiFromConfig();
+  if (resolvedProject === undefined) return;
+  if (resolvedProject === null) {
+    renderNotFound();
+  } else {
+    renderProjectDetail(resolvedProject);
+  }
+}
+
+document.getElementById("language-toggle")?.addEventListener("click", handleLanguageToggle);
+
 bindDiplomaLightboxEvents();
 bindProjectDetailDemoLightboxDelegation();
 closeDiplomaLightbox();
@@ -331,13 +397,16 @@ loadProjects()
   .then(async projects => {
     const project = projects.find(item => item.id === projectId);
     if (!project) {
+      resolvedProject = null;
       renderNotFound();
       return;
     }
+    resolvedProject = project;
     await validateProjectForDetail(project);
     renderProjectDetail(project);
   })
   .catch(error => {
     console.error("Error loading personal project JSON files:", error);
+    resolvedProject = null;
     renderNotFound();
   });
