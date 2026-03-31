@@ -8,5 +8,16 @@
         "diplomaImage": "assets/certifications/certification-in-ai-based-development.png",
         "diplomaImageAlt": "Certification in AI-based Development diploma",
         "diplomaImageAltEs": "Diploma de Iniciación al Desarrollo con IA"
+    },
+    {
+        "title": "Claude Certified Architect",
+        "titleEs": "Claude Certified Architect",
+        "issuer": "Anthropic",
+        "issuerEs": "Anthropic",
+        "date": "In progress",
+        "dateEs": "En curso",
+        "diplomaImage": "assets/projects/in-progress.png",
+        "diplomaImageAlt": "Claude Certified Architect — work in progress",
+        "diplomaImageAltEs": "Claude Certified Architect — certificación en curso"
     }
 ]

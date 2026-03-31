@@ -117,6 +117,10 @@ function renderCertifications(language = "en") {
       certification,
       language
     );
+    const dateLabel =
+      language === "es" && isNonEmptyString(certification.dateEs)
+        ? certification.dateEs
+        : certification.date || "";
     const card = document.createElement("article");
     card.className = "card certification-card";
     const hasDiplomaImage = isNonEmptyString(certification.diplomaImage);
@@ -148,7 +152,7 @@ function renderCertifications(language = "en") {
       ${diplomaImage}
       <p class="eyebrow">${issuer}</p>
       <h3>${title}</h3>
-      <p class="small-note certification-date">${certification.date}</p>
+      <p class="small-note certification-date">${dateLabel}</p>
     `;
 
     grid.appendChild(card);
