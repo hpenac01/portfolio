@@ -1,0 +1,636 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CV — Hugo Peña Cantonero (English)</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&family=Outfit:wght@500;600;700&display=swap"
+    rel="stylesheet"
+  />
+  <style>
+    :root {
+      --a4-height-screen: 297mm;
+      --a4-height-print: 287mm;
+      --side-bg: linear-gradient(165deg, #0b1220 0%, #111827 48%, #0c4a6e 100%);
+      --side-text: #e2e8f0;
+      --side-muted: #94a3b8;
+      --accent: #38bdf8;
+      --accent-soft: rgba(56, 189, 248, 0.2);
+      --main-bg: #f8fafc;
+      --paper: #ffffff;
+      --ink: #0f172a;
+      --muted: #475569;
+      --rule: #e2e8f0;
+      --shadow: 0 4px 24px rgba(15, 23, 42, 0.08);
+    }
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+    body {
+      font-family: "DM Sans", system-ui, sans-serif;
+      font-size: 9pt;
+      line-height: 1.4;
+      color: var(--ink);
+      background: #cbd5e1;
+      min-height: 100vh;
+      padding: 24px 16px 32px;
+    }
+    .sheet {
+      max-width: 210mm;
+      min-height: var(--a4-height-screen);
+      margin: 0 auto;
+      background: var(--paper);
+      box-shadow: var(--shadow);
+      border-radius: 4px;
+      overflow: hidden;
+      display: grid;
+      grid-template-columns: 200px 1fr;
+      grid-template-rows: 1fr;
+      align-items: stretch;
+    }
+    @media (max-width: 720px) {
+      body { padding: 12px; }
+      .sheet {
+        grid-template-columns: 1fr;
+        border-radius: 0;
+        min-height: 0;
+      }
+      .column-fill {
+        display: none;
+      }
+    }
+    .side {
+      background: var(--side-bg);
+      color: var(--side-text);
+      padding: 16px 14px 18px;
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      min-height: 100%;
+    }
+    .column-fill {
+      flex: 1 1 auto;
+      min-height: 0;
+    }
+    .side::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(circle at 100% 0%, rgba(56, 189, 248, 0.12), transparent 55%);
+      pointer-events: none;
+    }
+    .side > * {
+      position: relative;
+      z-index: 1;
+    }
+    .photo-wrap {
+      width: 76px;
+      height: 76px;
+      border-radius: 50%;
+      margin: 0 auto 10px;
+      border: 2px solid rgba(56, 189, 248, 0.45);
+      overflow: hidden;
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.35);
+    }
+    .photo-wrap img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+    .side h1 {
+      font-family: "Outfit", sans-serif;
+      font-size: 1.05rem;
+      font-weight: 700;
+      text-align: center;
+      letter-spacing: -0.02em;
+      line-height: 1.15;
+    }
+    .side .role-line {
+      text-align: center;
+      font-size: 0.68rem;
+      color: var(--accent);
+      font-weight: 600;
+      margin-top: 4px;
+      line-height: 1.35;
+    }
+    .side-section {
+      margin-top: 12px;
+    }
+    .side-section h2 {
+      font-family: "Outfit", sans-serif;
+      font-size: 0.58rem;
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+      color: var(--accent);
+      margin-bottom: 5px;
+      padding-bottom: 4px;
+      border-bottom: 1px solid rgba(148, 163, 184, 0.25);
+    }
+    .contact-list {
+      list-style: none;
+      font-size: 0.68rem;
+    }
+    .contact-list li {
+      margin-bottom: 3px;
+      color: var(--side-muted);
+      word-break: break-word;
+    }
+    .contact-list a {
+      color: #f1f5f9;
+      text-decoration: none;
+      font-weight: 500;
+    }
+    .contact-list a:hover {
+      color: var(--accent);
+      text-decoration: underline;
+    }
+    .tag-cloud {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 3px 4px;
+    }
+    .tag {
+      font-size: 0.58rem;
+      padding: 2px 5px;
+      border-radius: 6px;
+      background: var(--accent-soft);
+      color: #e0f2fe;
+      border: 1px solid rgba(56, 189, 248, 0.25);
+      font-weight: 500;
+    }
+    .lang-block {
+      font-size: 0.68rem;
+      color: var(--side-muted);
+    }
+    .lang-block strong {
+      color: #f1f5f9;
+      display: block;
+      margin-bottom: 4px;
+      font-weight: 600;
+    }
+    .lang-block strong.lang-second {
+      margin-top: 6px;
+    }
+    .cert-side {
+      font-size: 0.65rem;
+      color: var(--side-muted);
+      line-height: 1.45;
+    }
+    .cert-side strong {
+      color: #e2e8f0;
+      font-weight: 600;
+    }
+    .side-section .cert-side + .cert-side {
+      margin-top: 8px;
+    }
+    .main {
+      padding: 14px 16px 14px;
+      background: linear-gradient(180deg, var(--main-bg) 0%, var(--paper) 18%);
+      display: flex;
+      flex-direction: column;
+      min-height: 100%;
+    }
+    section {
+      margin-bottom: 10px;
+    }
+    section:last-child {
+      margin-bottom: 0;
+    }
+    .main h2 {
+      font-family: "Outfit", sans-serif;
+      font-size: 0.62rem;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: #0369a1;
+      margin-bottom: 5px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .main h2::after {
+      content: "";
+      flex: 1;
+      height: 2px;
+      background: linear-gradient(90deg, var(--accent), transparent);
+      opacity: 0.5;
+      border-radius: 1px;
+    }
+    .summary {
+      font-size: 0.78rem;
+      color: var(--ink);
+      text-align: justify;
+      hyphens: auto;
+    }
+    .role {
+      margin-bottom: 8px;
+      padding-left: 10px;
+      border-left: 2px solid var(--accent);
+      padding-bottom: 0;
+    }
+    .role:last-of-type {
+      margin-bottom: 0;
+    }
+    .role-head {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: baseline;
+      justify-content: space-between;
+      gap: 6px 14px;
+    }
+    .role-head h3 {
+      font-family: "Outfit", sans-serif;
+      font-size: 0.82rem;
+      font-weight: 600;
+    }
+    .role-meta {
+      font-size: 0.65rem;
+      color: var(--muted);
+      font-weight: 600;
+      white-space: nowrap;
+    }
+    .company {
+      font-size: 0.68rem;
+      color: var(--muted);
+      margin-top: 2px;
+      font-weight: 500;
+    }
+    .role ul {
+      margin: 4px 0 0 0.9em;
+      font-size: 0.68rem;
+      color: var(--ink);
+    }
+    .role li {
+      margin-bottom: 1px;
+    }
+    .projects-block {
+      font-size: 0.86rem;
+    }
+    .project-row {
+      margin-bottom: 6px;
+      padding: 6px 8px;
+      background: rgba(248, 250, 252, 0.9);
+      border: 1px solid var(--rule);
+      border-radius: 8px;
+    }
+    .project-row:last-child {
+      margin-bottom: 0;
+    }
+    .project-row h3 {
+      font-family: "Outfit", sans-serif;
+      font-size: 0.72rem;
+      font-weight: 600;
+      margin: 0 0 3px;
+      display: block;
+    }
+    .project-row p {
+      color: var(--muted);
+      font-size: 0.65rem;
+      line-height: 1.35;
+      display: block;
+      margin: 0;
+    }
+    .project-row a {
+      color: #0369a1;
+      font-weight: 600;
+      text-decoration: none;
+      font-size: 0.62rem;
+      display: block;
+      margin-top: 4px;
+    }
+    .project-row a:hover {
+      text-decoration: underline;
+    }
+    .split-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 6px 10px;
+    }
+    @media (max-width: 600px) {
+      .split-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+    .mini-card {
+      background: var(--paper);
+      border: 1px solid var(--rule);
+      border-radius: 8px;
+      padding: 6px 8px;
+      font-size: 0.68rem;
+      box-shadow: 0 1px 0 rgba(15, 23, 42, 0.04);
+    }
+    .mini-card h3 {
+      font-family: "Outfit", sans-serif;
+      font-size: 0.75rem;
+      margin-bottom: 3px;
+    }
+    .mini-card .small {
+      font-size: 0.65rem;
+      color: var(--muted);
+      margin-top: 3px;
+      line-height: 1.3;
+    }
+    @page {
+      size: A4 portrait;
+      margin: 5mm;
+    }
+    @media print {
+      body {
+        background: #fff;
+        padding: 0;
+        font-size: 7.25pt;
+        line-height: 1.28;
+      }
+      .sheet {
+        box-shadow: none;
+        border-radius: 0;
+        max-width: none;
+        width: 100%;
+        min-height: var(--a4-height-print);
+        grid-template-columns: 168px 1fr;
+      }
+      .side {
+        padding: 10px 10px 12px !important;
+      }
+      .photo-wrap {
+        width: 58px !important;
+        height: 58px !important;
+        margin-bottom: 6px !important;
+      }
+      .side-section {
+        margin-top: 8px !important;
+      }
+      .main {
+        padding: 8px 10px 8px !important;
+      }
+      section {
+        margin-bottom: 6px !important;
+      }
+      .main h2::after {
+        display: none;
+      }
+      .main h2 {
+        margin-bottom: 3px;
+        padding-bottom: 2px;
+        border-bottom: 1px solid var(--rule);
+      }
+      .role {
+        margin-bottom: 5px !important;
+      }
+      .project-row {
+        margin-bottom: 3px !important;
+        padding: 3px 5px !important;
+      }
+      .split-grid {
+        gap: 4px 8px !important;
+      }
+      .mini-card {
+        padding: 4px 6px !important;
+      }
+      .contact-list a {
+        color: #f0f9ff !important;
+        font-weight: 600;
+      }
+      .contact-list a[href^="http"]::after {
+        content: " · " attr(href);
+        font-size: 0.68em;
+        color: #bae6fd !important;
+        font-weight: 500;
+      }
+      .contact-list a[href^="mailto:"] {
+        color: #f0f9ff !important;
+      }
+      .project-row a {
+        color: #0369a1 !important;
+        font-weight: 700;
+      }
+      .project-row a::after {
+        content: " · " attr(href);
+        font-size: 0.68em;
+        color: #334155 !important;
+        font-weight: 500;
+      }
+      .side {
+        background: #0f172a !important;
+      }
+      body,
+      .sheet {
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="sheet">
+    <aside class="side" aria-label="Contact and skills">
+      <div class="photo-wrap">
+        <img src="assets/foto_hugo.jpg" alt="Hugo Peña Cantonero" width="76" height="76" />
+      </div>
+      <h1>Hugo Peña Cantonero</h1>
+      <p class="role-line">Software Engineer<br />Android · QA Automation</p>
+
+      <div class="side-section">
+        <h2>Contact</h2>
+        <ul class="contact-list">
+          <li>Cáceres, Spain · Remote / hybrid</li>
+          <li><a href="mailto:hpenac01@gmail.com">hpenac01@gmail.com</a></li>
+          <li><a href="https://www.linkedin.com/in/hpeacant/">LinkedIn</a></li>
+          <li><a href="https://github.com/hpenac01">GitHub</a></li>
+          <li><a href="https://hpenac01.github.io/portfolio">Portfolio (web)</a></li>
+        </ul>
+      </div>
+
+      <div class="side-section">
+        <h2>Stack &amp; tools</h2>
+        <div class="tag-cloud">
+          <span class="tag">Kotlin</span>
+          <span class="tag">Java</span>
+          <span class="tag">Android Studio</span>
+          <span class="tag">Gradle</span>
+          <span class="tag">BrightScript</span>
+          <span class="tag">Python</span>
+          <span class="tag">Playwright</span>
+          <span class="tag">Pytest</span>
+          <span class="tag">TypeScript</span>
+          <span class="tag">Git</span>
+          <span class="tag">REST</span>
+          <span class="tag">SQL / NoSQL</span>
+          <span class="tag">Docker</span>
+          <span class="tag">CI/CD</span>
+          <span class="tag">JavaScript</span>
+          <span class="tag">Agile</span>
+        </div>
+      </div>
+
+      <div class="side-section">
+        <h2>Languages</h2>
+        <div class="lang-block">
+          <strong>Spanish</strong>
+          Native
+          <strong class="lang-second">English</strong>
+          B1 
+        </div>
+      </div>
+
+      <div class="side-section">
+        <h2>Certifications</h2>
+        <p class="cert-side">
+          <strong>Introduction to AI-based development</strong><br />
+          BIG School &amp; Brais Moure (MoureDev) · Mar 2026
+        </p>
+        <p class="cert-side">
+          <strong>Claude Code in Action Certified </strong><br />
+          Anthropic · apr. 2026
+        </p>
+      </div>
+
+      <div class="side-section">
+        <h2>Focus</h2>
+        <p class="cert-side">
+          <strong>Media and streaming</strong> environments; <strong>QA-first</strong> mindset with delivery in mind; continuous learning
+          (backend and Android alongside my day-to-day role).
+        </p>
+      </div>
+      <div class="column-fill" aria-hidden="true"></div>
+    </aside>
+
+    <div class="main">
+      <section>
+        <h2>Profile</h2>
+        <p class="summary">
+          I&apos;ve spent the last 2+ years shipping digital products in streaming, working with international teams in agile settings. My
+          day-to-day mixes hands-on development —Kotlin, Java and BrightScript on Roku— with a strong quality lens: Playwright and Pytest
+          automation, plus manual testing on Smart TV, web and mobile when that&apos;s what the risk calls for. I care about catching
+          regressions before release, keeping Git history clear, and staying aligned with both product and engineering on what “done” means.
+        </p>
+      </section>
+
+      <section>
+        <h2>Experience</h2>
+
+        <article class="role">
+          <div class="role-head">
+            <h3>Software Developer (Roku)</h3>
+            <span class="role-meta">Feb 2026 — Present</span>
+          </div>
+          <p class="company">EPAM · ClaroVideo (Roku streaming) · Remote</p>
+          <ul>
+            <li>Streaming features with <strong>BrightScript</strong>; distributed teams, regular releases, Git and client standards.</li>
+            <li>Development-assistance tools to speed up implementation and debugging.</li>
+            <li>Part of the delivery cycle with code review and alignment with product expectations.</li>
+          </ul>
+        </article>
+
+        <article class="role">
+          <div class="role-head">
+            <h3>Android Developer</h3>
+            <span class="role-meta">Jan 2026 — Feb 2026</span>
+          </div>
+          <p class="company">EPAM · Android mobile / STB (short internal assignment)</p>
+          <ul>
+            <li><strong>Kotlin</strong>, Android Studio / Gradle, APIs; agile delivery on mobile and STB.</li>
+            <li>Backlog refinement and acceptance criteria validation together with the team.</li>
+          </ul>
+        </article>
+
+        <article class="role">
+          <div class="role-head">
+            <h3>QA Automation Engineer</h3>
+            <span class="role-meta">Mar 2025 — Dec 2025</span>
+          </div>
+          <p class="company">EPAM · Atresmedia (atresplayer.com)</p>
+          <ul>
+            <li>
+              E2E automation with <strong>Playwright</strong> / <strong>Pytest</strong> in pre-release flows; critical regression and early defect
+              detection.
+            </li>
+            <li>Coordination with dev and manual QA; cross-platform validation (browser / product).</li>
+            <li>Evolving test suites to cover business-critical flows in each release window.</li>
+          </ul>
+        </article>
+
+        <article class="role">
+          <div class="role-head">
+            <h3>QA Manual Tester</h3>
+            <span class="role-meta">Aug 2024 — Mar 2025</span>
+          </div>
+          <p class="company">EPAM · Filmin (multi-platform VOD)</p>
+          <ul>
+            <li>Functional, UI and performance QA on <strong>Smart TV, mobile and web</strong>; regression and release quality in agile cadence.</li>
+            <li>Structured defect reporting, reproduction steps and follow-up until closure in team tooling.</li>
+          </ul>
+        </article>
+      </section>
+
+      <section>
+        <h2>Highlighted projects</h2>
+        <div class="projects-block">
+          <div class="project-row">
+            <h3>Poke Repo Android</h3>
+            <p>
+              Kotlin Android app with Material Design on a public Pokémon API: searchable list, species detail, favorites, account flows and
+              settings. Modular list/detail structure and REST consumption. Open source as a reference for Android structure and layering.
+            </p>
+            <a href="https://github.com/hpenac01/PokeRepo">github.com/hpenac01/PokeRepo</a>
+          </div>
+          <div class="project-row">
+            <h3>Portfolio Engine</h3>
+            <p>
+              Modular personal site, bilingual (EN/ES), JSON-driven content for fast updates. Active navigation, light motion, static
+              deployment; clarity for recruiters. Hosts these CV pages in ES/EN.
+            </p>
+            <a href="https://github.com/hpenac01/portfolio">github.com/hpenac01/portfolio</a>
+          </div>
+          <div class="project-row">
+            <h3>Self-hosted Teleparty</h3>
+            <p>
+              Experiment in synchronized watch sessions on your own infrastructure (rooms, sync across clients) without third-party SaaS.
+              Stack: Node.js, WebSockets, Docker packaging. Ongoing work with a privacy and control focus.
+            </p>
+            <a href="https://github.com/hpenac01/teleparty">github.com/hpenac01/teleparty</a>
+          </div>
+          <div class="project-row">
+            <h3>StudyCoach AI (bachelor thesis)</h3>
+            <p>
+              Final-year project: AI study-assistant prototype to plan sessions, summarize notes and reinforce weak topics (Python, LLM APIs).
+              Academic delivery focused on transparency and good practices.
+            </p>
+            <a href="https://github.com/hpenac01">github.com/hpenac01</a>
+          </div>
+        </div>
+      </section>
+
+      <section>
+        <h2>Education &amp; ongoing training</h2>
+        <div class="split-grid">
+          <div class="mini-card">
+            <h3>Bachelor&apos;s in Computer Engineering</h3>
+            <p>Software Engineering — Universidad de Extremadura (2019 — 2024)</p>
+            <p class="small">
+              Core computer science, software engineering, databases and application development; final thesis (TFG) in progress on an AI-assisted
+              study product.
+            </p>
+            <p class="small"><strong>Degree:</strong> pending TFG defense.</p>
+          </div>
+          <div class="mini-card">
+            <h3>Ongoing self-directed training</h3>
+            <p class="small" style="margin-top: 0">
+              <strong>Backend:</strong> TypeScript, Express, Prisma, PostgreSQL, JWT, Docker, Jest, API docs (Swagger), CI pipelines on GitHub
+              Actions.<br /><br />
+              <strong>Android:</strong> Firebase, MVVM, Room, Retrofit, dependency injection (Hilt), unit and UI tests, Google Play publishing
+              readiness.
+            </p>
+          </div>
+        </div>
+      </section>
+      <div class="column-fill" aria-hidden="true"></div>
+    </div>
+  </div>
+</body>
+</html>

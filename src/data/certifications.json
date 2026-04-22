@@ -10,14 +10,14 @@
         "diplomaImageAltEs": "Diploma de Iniciación al Desarrollo con IA"
     },
     {
-        "title": "Claude Certified Architect",
-        "titleEs": "Claude Certified Architect",
+        "title": "Claude Code in Action Certified",
+        "titleEs": "Claude Code in Action Certified",
         "issuer": "Anthropic",
         "issuerEs": "Anthropic",
-        "date": "In progress",
-        "dateEs": "En curso",
-        "diplomaImage": "assets/projects/in-progress.png",
-        "diplomaImageAlt": "Claude Certified Architect — work in progress",
-        "diplomaImageAltEs": "Claude Certified Architect — certificación en curso"
+        "date": "04-2026",
+        "dateEs": "Abr. 2026",
+        "diplomaImage": "assets/certifications/certificate-claude-in-action.jpg",
+        "diplomaImageAlt": "Claude Code in Action Certified",
+        "diplomaImageAltEs": "Claude Code in Action Certified"
     }
 ]
